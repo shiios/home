@@ -33,11 +33,11 @@
     [self.navView addSubview:self.backBtn];
     [self.backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((KScreenWidth - KW(80))/2.0, 20, KW(80), 40)];
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.textColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
-    [self.navView addSubview:self.titleLabel];
+    self.navTitleView = [[UILabel alloc]initWithFrame:CGRectMake((KScreenWidth - KW(80))/2.0, 20, KW(80), 40)];
+    self.navTitleView.font = [UIFont systemFontOfSize:14];
+    self.navTitleView.textAlignment = NSTextAlignmentCenter;
+    self.navTitleView.textColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
+    [self.navView addSubview:self.navTitleView];
     
 }
 - (void)backBtnClick

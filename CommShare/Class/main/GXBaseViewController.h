@@ -12,6 +12,6 @@
 
 @property (nonatomic,strong) UIView *navView;
 @property (nonatomic,strong) UIButton *backBtn;
-@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,strong) UILabel *navTitleView;
 
 @end

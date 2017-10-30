@@ -29,8 +29,8 @@ static NSString *headerID = @"CollectionHeaderView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.titleLabel.text = @"选择服务";
+    self.view.backgroundColor = [GXGeneralHelp colorWithHexString:@"#f6f6f6" andAlpha:1.0];
+    self.navTitleView.text = @"选择服务";
 
     
     [self setUI];
@@ -43,7 +43,7 @@ static NSString *headerID = @"CollectionHeaderView";
     self.flowLayout = [[UICollectionViewFlowLayout alloc]init];
     self.flowLayout.minimumLineSpacing = 8;
     self.flowLayout.minimumInteritemSpacing = 8;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, KWScreen, KHScreen - 64) collectionViewLayout:self.flowLayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 110, KWScreen, KHScreen - 110) collectionViewLayout:self.flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
