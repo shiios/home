@@ -1,0 +1,30 @@
+//
+//  CommShare.pch
+//  CommShare
+//
+//  Created by Sandwind on 2017/10/17.
+//  Copyright © 2017年 Sandwind. All rights reserved.
+//
+
+#ifndef CommShare_pch
+#define CommShare_pch
+
+#import <Foundation/Foundation.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import "GXGeneralHelp.h"
+#import "GXNetClientManager.h"
+#import "GXBaseViewController.h"
+
+#pragma mark - 高德key
+const static NSString *APIKey = @"24a83c677930e4515d80caabfaa697c6";
+
+#pragma mark - 屏幕尺寸常量
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define KW(widthValue) (KScreenWidth/375) * widthValue
+#define KH(heightValue) (KScreenHeight/667) * heightValue
+#endif /* CommShare_pch */
