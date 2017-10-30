@@ -9,6 +9,7 @@
 #import "GXChooseServiceVC.h"
 #import "GXServiceCollectionViewCell.h"
 #import "GXServiceCollReusableHeaderView.h"
+#import "GXServiceDetaiVC.h"
 
 static NSString *cellID = @"GHCollectionViewCell";
 static NSString *headerID = @"CollectionHeaderView";
@@ -16,9 +17,6 @@ static NSString *headerID = @"CollectionHeaderView";
 #define KHScreen [UIScreen mainScreen].bounds.size.height
 @interface GXChooseServiceVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic,strong) UIView *navView;
-@property (nonatomic,strong) UIButton *backBtn;
-@property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic,strong) NSMutableArray *servDatas;
@@ -32,7 +30,8 @@ static NSString *headerID = @"CollectionHeaderView";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.titleLabel.text = @"选择服务";
+
     
     [self setUI];
     
@@ -40,22 +39,6 @@ static NSString *headerID = @"CollectionHeaderView";
 - (void)setUI
 {
    
-    self.navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 64)];
-    self.navView.backgroundColor = [GXGeneralHelp colorWithRedValue:42 green:97 blue:218 andAlpha:1.0];
-    [self.view addSubview:self.navView];
-    self.backBtn = [[UIButton alloc]initWithFrame:CGRectMake(KW(10), 20, KW(40), KW(40))];
-    [self.backBtn setTitle:@"back" forState:UIControlStateNormal];
-    self.backBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [self.backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.navView addSubview:self.backBtn];
-    [self.backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((KScreenWidth - KW(80))/2.0, 20, KW(80), 40)];
-    self.titleLabel.text = @"选择服务";
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.textColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
-    [self.navView addSubview:self.titleLabel];
-    
     self.dataArray = [NSMutableArray arrayWithObjects:@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机", nil];
     self.flowLayout = [[UICollectionViewFlowLayout alloc]init];
     self.flowLayout.minimumLineSpacing = 8;
@@ -70,14 +53,8 @@ static NSString *headerID = @"CollectionHeaderView";
     
     
     
+    
 }
-
-- (void)backBtnClick
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -121,8 +98,8 @@ static NSString *headerID = @"CollectionHeaderView";
 {
     //    CGFloat w = ([UIScreen mainScreen].bounds.size.width - 40) / 4.0;
     //    CGFloat w = [self getWidthWithTitle:self.dataArray[indexPath.row] font:[UIFont systemFontOfSize:14]];
-    CGFloat margin = self.flowLayout.minimumInteritemSpacing;
-    CGFloat columnMargin = self.flowLayout.minimumLineSpacing;
+//    CGFloat margin = self.flowLayout.minimumInteritemSpacing;
+//    CGFloat columnMargin = self.flowLayout.minimumLineSpacing;
     //    NSLog(@"%.2f  %.2f  %.2f",w,margin,columnMargin);
     
     CGFloat w = [self getWidthWithTitle:self.dataArray[indexPath.row] font:[UIFont systemFontOfSize:14]];
@@ -147,7 +124,7 @@ static NSString *headerID = @"CollectionHeaderView";
             headerView = [[GXServiceCollReusableHeaderView alloc]init];
         }
         
-        headerView.backgroundColor = [UIColor greenColor];
+//        headerView.backgroundColor = [UIColor greenColor];
         headerView.serNameLabel.text = self.dataArray[indexPath.section];
         reuseableView = headerView;
     }
@@ -175,7 +152,8 @@ static NSString *headerID = @"CollectionHeaderView";
     CGFloat w = [self getWidthWithTitle:self.dataArray[indexPath.row] font:[UIFont systemFontOfSize:14]];
     NSLog(@"%ld   %.2f",(long)indexPath.row,w);
     
-    
+    GXServiceDetaiVC *detailVc = [[GXServiceDetaiVC alloc]init];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

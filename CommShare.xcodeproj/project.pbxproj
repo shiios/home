@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		29144D741FA6CC1E00E2F025 /* GXServiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29144D731FA6CC1E00E2F025 /* GXServiceCollectionViewCell.m */; };
 		29144D771FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29144D761FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.m */; };
+		29144D7A1FA7026500E2F025 /* GXServiceDetaiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 29144D791FA7026500E2F025 /* GXServiceDetaiVC.m */; };
 		292BC03F1FA5774C0096B3DF /* GXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BC03E1FA5774C0096B3DF /* GXBaseViewController.m */; };
 		299DA2601F9DC9AE00072C32 /* GXChooseServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 299DA25F1F9DC9AE00072C32 /* GXChooseServiceVC.m */; };
 		299DA2641F9DCE6200072C32 /* GXNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299DA2631F9DCE6200072C32 /* GXNavViewController.m */; };
@@ -120,6 +121,8 @@
 		29144D731FA6CC1E00E2F025 /* GXServiceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXServiceCollectionViewCell.m; sourceTree = "<group>"; };
 		29144D751FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXServiceCollReusableHeaderView.h; sourceTree = "<group>"; };
 		29144D761FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXServiceCollReusableHeaderView.m; sourceTree = "<group>"; };
+		29144D781FA7026500E2F025 /* GXServiceDetaiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXServiceDetaiVC.h; sourceTree = "<group>"; };
+		29144D791FA7026500E2F025 /* GXServiceDetaiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXServiceDetaiVC.m; sourceTree = "<group>"; };
 		292BC03D1FA5774C0096B3DF /* GXBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXBaseViewController.h; sourceTree = "<group>"; };
 		292BC03E1FA5774C0096B3DF /* GXBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXBaseViewController.m; sourceTree = "<group>"; };
 		299DA25E1F9DC9AE00072C32 /* GXChooseServiceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXChooseServiceVC.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				29144D731FA6CC1E00E2F025 /* GXServiceCollectionViewCell.m */,
 				29144D751FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.h */,
 				29144D761FA6CC4100E2F025 /* GXServiceCollReusableHeaderView.m */,
+				29144D781FA7026500E2F025 /* GXServiceDetaiVC.h */,
+				29144D791FA7026500E2F025 /* GXServiceDetaiVC.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -917,6 +922,7 @@
 				8DFA55F91F95D7AB00E75472 /* UIImageView+WebCache.m in Sources */,
 				8DFA55F71F95D7AB00E75472 /* UIImage+WebP.m in Sources */,
 				299DA2601F9DC9AE00072C32 /* GXChooseServiceVC.m in Sources */,
+				29144D7A1FA7026500E2F025 /* GXServiceDetaiVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

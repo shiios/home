@@ -10,15 +10,40 @@
 
 @interface GXBaseViewController ()
 
+
 @end
 
 @implementation GXBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setNav];
 }
 
+- (void)setNav
+{
+    self.navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 64)];
+    self.navView.backgroundColor = [GXGeneralHelp colorWithRedValue:42 green:97 blue:218 andAlpha:1.0];
+    [self.view addSubview:self.navView];
+    self.backBtn = [[UIButton alloc]initWithFrame:CGRectMake(KW(10), 20, KW(40), KW(40))];
+    [self.backBtn setTitle:@"back" forState:UIControlStateNormal];
+    self.backBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.navView addSubview:self.backBtn];
+    [self.backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((KScreenWidth - KW(80))/2.0, 20, KW(80), 40)];
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.textColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
+    [self.navView addSubview:self.titleLabel];
+    
+}
+- (void)backBtnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

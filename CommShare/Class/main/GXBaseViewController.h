@@ -10,4 +10,8 @@
 
 @interface GXBaseViewController : UIViewController
 
+@property (nonatomic,strong) UIView *navView;
+@property (nonatomic,strong) UIButton *backBtn;
+@property (nonatomic,strong) UILabel *titleLabel;
+
 @end

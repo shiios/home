@@ -23,7 +23,6 @@
 @property (nonatomic,strong) NSString *currLoc;
 @property (nonatomic,strong) AMapSearchAPI *searchApi;
 
-@property (nonatomic,strong) UIView *navView;
 @property (nonatomic,strong) UIButton *portraitBtn;
 @property (nonatomic,strong) UIButton *menuBtn;
 
@@ -77,10 +76,6 @@
 #pragma mark - 设置界面
 - (void)setUI
 {
-    
-    
-    self.navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 64)];
-    self.navView.backgroundColor = [GXGeneralHelp colorWithRedValue:42 green:97 blue:218 andAlpha:1.0];
     //头像
     self.portraitBtn = [[UIButton alloc]initWithFrame:CGRectMake(KW(10), 20, KW(40), KW(40))];
     self.portraitBtn.backgroundColor = [UIColor greenColor];
