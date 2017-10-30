@@ -31,3 +31,15 @@ $ git branch [name]
 然后push
 
 $ git push -u origin [name]
+
+
+链接本地项目到github:
+通过cd命令进入你要上传的工程中
+执行git init
+再执行git add .(这里面小数点代表的是上传所用的文件)
+在执行git commit -m "first commit"
+再执行git remote add origin https://github.com/shiios/home.git(项目初建链接)
+再执行git pull
+再执行git pull origin master
+最后执行git push -u origin master
+注意：若有报错，依照上述error提示进行强制提交。
