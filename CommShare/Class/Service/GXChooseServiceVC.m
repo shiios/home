@@ -15,16 +15,25 @@ static NSString *cellID = @"GHCollectionViewCell";
 static NSString *headerID = @"CollectionHeaderView";
 #define KWScreen [UIScreen mainScreen] .bounds.size.width
 #define KHScreen [UIScreen mainScreen].bounds.size.height
-@interface GXChooseServiceVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface GXChooseServiceVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic,strong) NSMutableArray *servDatas;
 @property (nonatomic,strong) NSMutableArray *dataArray;
-
+@property (nonatomic,strong) UISearchBar *searchBar;
+@property (nonatomic,strong) NSMutableArray *searchResultDatas;
 @end
 
 @implementation GXChooseServiceVC
+
+- (NSMutableArray *)searchResultDatas
+{
+    if (!_searchResultDatas) {
+        _searchResultDatas = [NSMutableArray array];
+    }
+    return _searchResultDatas;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,11 +48,16 @@ static NSString *headerID = @"CollectionHeaderView";
 - (void)setUI
 {
    
+    self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, KWScreen, KH(46))];
+    self.searchBar.barStyle = UIBarStyleDefault;
+    self.searchBar.placeholder = @"输入需求或故障，例如三星手机换屏";
+    [self.view addSubview:self.searchBar];
+    self.searchBar.delegate = self;
     self.dataArray = [NSMutableArray arrayWithObjects:@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机",@"开锁",@"灯管灯泡",@"下水道",@"洗手池",@"清洗油烟机", nil];
     self.flowLayout = [[UICollectionViewFlowLayout alloc]init];
     self.flowLayout.minimumLineSpacing = 8;
     self.flowLayout.minimumInteritemSpacing = 8;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 110, KWScreen, KHScreen - 110) collectionViewLayout:self.flowLayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64+KH(46), KWScreen, KHScreen - 64 - KH(46)) collectionViewLayout:self.flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -51,10 +65,12 @@ static NSString *headerID = @"CollectionHeaderView";
     [self.collectionView registerClass:[GXServiceCollectionViewCell class] forCellWithReuseIdentifier:cellID];
     [self.collectionView registerClass:[GXServiceCollReusableHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID];
     
-    
-    
-    
 }
+
+#pragma mark - UISearchBarDelegate
+
+
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

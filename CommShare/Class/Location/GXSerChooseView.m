@@ -48,7 +48,7 @@
     self.view2.layer.cornerRadius = 5.0;
 //        self.view2.layer.masksToBounds = YES;
     //设置投影
-    self.view2.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.view2.layer.shadowColor = [ UIColor blackColor].CGColor;
     self.view2.layer.shadowOpacity = 0.8f;
     self.view2.layer.shadowRadius = 5.0f;
     self.view2.layer.shadowOffset = CGSizeMake(0.0, 0.0);

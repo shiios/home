@@ -23,6 +23,7 @@
 
 - (void)setNav
 {
+    self.view.backgroundColor = [GXGeneralHelp colorWithHexString:@"#f6f6f6" andAlpha:1.0];
     self.navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 64)];
     self.navView.backgroundColor = [GXGeneralHelp colorWithRedValue:42 green:97 blue:218 andAlpha:1.0];
     [self.view addSubview:self.navView];

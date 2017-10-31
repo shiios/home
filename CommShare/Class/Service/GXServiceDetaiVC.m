@@ -8,7 +8,9 @@
 
 #import "GXServiceDetaiVC.h"
 
-@interface GXServiceDetaiVC ()
+@interface GXServiceDetaiVC ()<UISearchBarDelegate>
+
+@property (nonatomic,strong) UISearchBar *searchBar;
 
 @end
 
@@ -17,10 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
+//    self.view.backgroundColor = [GXGeneralHelp colorWithHexString:@"#ffffff" andAlpha:1.0];
     self.navTitleView.text = @"服务详情";
+    
+    [self configUI];
+    
 }
-
+- (void)configUI
+{
+    self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, KScreenWidth, KH(46))];
+    self.searchBar.barStyle = UIBarStyleDefault;
+    self.searchBar.placeholder = @"输入需求或故障，例如三星手机换屏";
+    [self.view addSubview:self.searchBar];
+}
 
 
 - (void)didReceiveMemoryWarning {
